@@ -1,0 +1,98 @@
+/* Shared styles for login, register and chatroom */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+html, body { height: 100%; }
+
+/* page wrapper: column layout with header + content */
+.page { display: flex; flex-direction: column; min-height: 100vh; }
+
+/* Login/Register forms */
+.login-form, .register-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 320px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+/* Submit buttons for auth forms (login/register) should be full-width */
+.login-form input[type="submit"], .register-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.login-form input[type="submit"]:hover, .register-form input[type="submit"]:hover { background-color: #45a049; }
+
+/* Message input submit should be auto-width so it sits beside the text input */
+.message-input input[type="submit"] { width: auto; }
+
+.error-message { color: red; text-align: center; }
+.success-message { color: green; text-align: center; }
+.register-link, .login-link { text-align: center; margin-top: 15px; }
+.register-link a, .login-link a { color: #4CAF50; text-decoration: none; }
+.register-link a:hover, .login-link a:hover { text-decoration: underline; }
+
+/* hide empty error/success message containers globally */
+.error-message:empty, .success-message:empty { display: none; }
+
+/* Chatroom layout */
+.container { display: flex; flex: 1; }
+.chat-area { flex: 3; display: flex; flex-direction: column; padding: 20px; }
+.sidebar { flex: 1; background-color: #e0e0e0; padding: 20px; border-left: 1px solid #ccc; }
+.header { background-color: #4CAF50; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+.messages { flex: 1; background-color: white; border: 1px solid #ddd; margin: 10px 0; padding: 15px; overflow-y: auto; border-radius: 5px; }
+.message-input { display: flex; gap: 10px; }
+.message-input input[type="text"] { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 3px; }
+.message-input input[type="submit"] { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 3px; cursor: pointer; }
+.message-input input[type="submit"]:hover { background-color: #45a049; }
+.logout-btn { background-color: #f44336; color: white; padding: 8px 16px; text-decoration: none; border-radius: 3px; }
+.logout-btn:hover { background-color: #d32f2f; }
+.online-users { background-color: white; border: 1px solid #ddd; padding: 15px; border-radius: 5px; margin-top: 20px; }
+.user-item { padding: 5px 0; border-bottom: 1px solid #eee; }
+.user-item:last-child { border-bottom: none; }
+.message { margin-bottom: 10px; padding: 5px; border-radius: 3px; }
+.message.own { background-color: #e3f2fd; }
+.message.system { background-color: #fff3e0; font-style: italic; }
+.message-time { font-size: 0.8em; color: #888; }
+.message-user { font-weight: bold; }
+
+/* small responsive tweak */
+@media (max-width: 800px) {
+    .container { flex-direction: column; }
+    .sidebar { order: 2; }
+}
+
+/* Centering wrapper for auth pages (login/register) */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* full viewport height so the form is vertically centered */
+}
+
+/* Ensure form box has a fixed width on larger screens */
+.login-form, .register-form {
+    width: 320px;
+}
